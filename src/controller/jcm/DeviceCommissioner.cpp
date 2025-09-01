@@ -421,7 +421,8 @@ TrustVerificationError DeviceCommissioner::PerformVendorIDVerificationProcedure(
     ByteSpan nocSpan = mInfo.adminNOC.Span();
 
     CHIP_ERROR err = VerifyVendorId(
-        mDeviceProxy, 
+        mDeviceProxy->GetExchangeManager(),
+        mDeviceProxy->GetSecureSession().Value(), 
         mInfo.adminFabricIndex, 
         mInfo.adminVendorId, 
         rcacSpan, 

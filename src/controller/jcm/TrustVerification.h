@@ -20,7 +20,6 @@
 #include <cstdint>
 #include <string>
 
-#include <app/DeviceProxy.h>
 #include <app-common/zap-generated/cluster-objects.h>
 #include <credentials/CHIPCert.h>
 #include <credentials/FabricTable.h>
@@ -29,6 +28,7 @@
 #include <lib/core/CHIPError.h>
 #include <lib/core/CHIPVendorIdentifiers.hpp>
 #include <lib/support/DLLUtil.h>
+#include <messaging/ExchangeMgr.h>
 
 namespace chip {
 namespace Controller {
@@ -39,6 +39,7 @@ using namespace ::chip::app;
 using namespace ::chip::app::Clusters::OperationalCredentials::Commands;
 using namespace ::chip::Credentials;
 using namespace ::chip::Crypto;
+using namespace ::chip::Messaging;
 
 struct TrustVerificationInfo
 {
@@ -179,7 +180,8 @@ public:
     virtual ~VendorIdVerificationClient() = default;
 
     CHIP_ERROR VerifyVendorId(
-        DeviceProxy * deviceProxy, 
+        ExchangeManager * exchangeMgr,
+        const SessionHandle & sessionHandle,
         FabricIndex fabricIndex, 
         VendorId vendorID, 
         ByteSpan & rcacSpan,
@@ -200,7 +202,8 @@ private:
         ByteSpan & rcacSpan);
 
     CHIP_ERROR Verify(
-        DeviceProxy * deviceProxy, 
+        ExchangeManager * exchangeMgr,
+        const SessionHandle & sessionHandle,
         FabricIndex fabricIndex, 
         VendorId vendorID, 
         ByteSpan & rcacSpan,
