@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARG BUILD_VERSION
+ARG BUILD_VERSION=171
 
 # All tools required for compilation belong in chip-build, forms "truth" for CHIP build tooling
 FROM ghcr.io/project-chip/chip-build-vscode:${BUILD_VERSION}
@@ -23,7 +23,7 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ARG WORKSPACE_ROOT=/workspaces/connectedhomeip
-ARG LOCAL_WORKSPACE_ROOT
+ARG LOCAL_WORKSPACE_ROOT=$WORKSPACE_ROOT
 ENV LANG=en_US.utf8
 
 

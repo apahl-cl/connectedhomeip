@@ -13,15 +13,16 @@
             "source": "/var/run/docker.sock",
             "target": "/var/run/docker.sock",
             "type": "bind"
-        },
-        {
-            "source": "/dev/bus/usb",
-            "target": "/dev/bus/usb",
-            "type": "bind"
+            // },
+            // {
+            //     "source": "/dev/bus/usb",
+            //     "target": "/dev/bus/usb",
+            //     "type": "bind"
         }
     ],
-    "initializeCommand": "bash .devcontainer/build.sh",
-    "image": "matter-dev-environment:local",
+    // "initializeCommand": "bash .devcontainer/build.sh",
+    // "image": "matter-dev-environment:local",
+    "dockerFile": "./Dockerfile",
     "remoteUser": "vscode",
     "containerEnv": {
         "PW_ENVIRONMENT_ROOT": "${containerWorkspaceFolder}/.environment-vscode"
