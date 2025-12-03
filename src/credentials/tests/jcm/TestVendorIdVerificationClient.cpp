@@ -155,7 +155,7 @@ public:
     }
 
     CHIP_ERROR OnLookupOperationalTrustAnchor(VendorId vendorID, Credentials::CertificateKeyId & subjectKeyId,
-                                              ByteSpan & globallyTrustedRootSpan)
+                                              ByteSpan & globallyTrustedRootSpan) override
     {
         if (mInvalidOperationTrustAnchor)
         {
@@ -173,7 +173,7 @@ public:
         return CHIP_NO_ERROR;
     }
 
-    void OnVendorIdVerificationComplete(const CHIP_ERROR & err)
+    void OnVendorIdVerificationComplete(const CHIP_ERROR & err) override
     {
         mVerificationCompleteCalled = true;
         mVerificationResult         = err;
