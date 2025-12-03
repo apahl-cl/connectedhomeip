@@ -37,9 +37,6 @@ using namespace chip::Test;
 using namespace chip::TestCerts;
 using namespace chip::Transport;
 
-// Mock function for linking
-void InitDataModelHandler() {}
-
 namespace chip {
 namespace app {
 void DispatchSingleClusterCommand(const ConcreteCommandPath & aRequestCommandPath, chip::TLV::TLVReader & aReader,
