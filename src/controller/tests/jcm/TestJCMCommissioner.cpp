@@ -54,9 +54,6 @@ namespace Controller {
 namespace JCM {
 using namespace ::chip::Credentials::JCM;
 
-// Mock function for linking
-void InitDataModelHandler() {}
-
 class MockTrustVerificationDelegate : public TrustVerificationDelegate
 {
 public:
