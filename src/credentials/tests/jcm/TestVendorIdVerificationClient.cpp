@@ -38,11 +38,6 @@ using namespace chip::TestCerts;
 using namespace chip::Transport;
 
 namespace chip {
-namespace app {
-void DispatchSingleClusterCommand(const ConcreteCommandPath & aRequestCommandPath, chip::TLV::TLVReader & aReader,
-                                  CommandHandler * apCommandObj)
-{}
-} // namespace app
 namespace Credentials {
 namespace JCM {
 
