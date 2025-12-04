@@ -24,7 +24,6 @@
 #include <controller/CommissioningDelegate.h>
 #include <controller/jcm/AutoCommissioner.h>
 #include <controller/jcm/DeviceCommissioner.h>
-#include <controller/tests/data_model/DataModelFixtures.h>
 #include <credentials/CHIPCert.h>
 #include <credentials/tests/CHIPCert_unit_test_vectors.h>
 #include <lib/core/CHIPCore.h>
