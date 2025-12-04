@@ -140,15 +140,15 @@ public:
         Crypto::P256PublicKey trustedCAPublicKey{ trustedCAPublicKeySpan };
         fabricDescriptor.rootPublicKey = ByteSpan{ trustedCAPublicKey.ConstBytes(), trustedCAPublicKey.Length() };
 
+        // Setup NOCs list attribute
+        OperationalCredentials::Structs::NOCStruct::Type nocStruct;
+        nocStruct.fabricIndex = fabricDescriptor.fabricIndex;
+
         OperationalCredentials::Structs::FabricDescriptorStruct::Type fabricListData[1] = { std::move(fabricDescriptor) };
         DataModel::List<const OperationalCredentials::Structs::FabricDescriptorStruct::Type> fabricsList;
         fabricsList = fabricListData;
         ConcreteAttributePath fabricsPath(0, OperationalCredentials::Id, OperationalCredentials::Attributes::Fabrics::Id);
         ReturnErrorOnFailure(SetAttributeForWrite(fabricsPath, fabricsList));
-
-        // Setup NOCs list attribute
-        OperationalCredentials::Structs::NOCStruct::Type nocStruct;
-        nocStruct.fabricIndex = fabricDescriptor.fabricIndex;
 
         uint8_t icacBuf[Credentials::kMaxCHIPCertLength];
         MutableByteSpan icacSpan{ icacBuf };
